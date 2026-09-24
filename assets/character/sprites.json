@@ -1,0 +1,26 @@
+{
+  "frames": {
+    "idle": [
+      "assets/character/bemmado-idle.svg"
+    ],
+    "walk": [
+      "assets/character/bemmado-walk-01.svg",
+      "assets/character/bemmado-walk-02.svg"
+    ],
+    "jump": [
+      "assets/character/bemmado-jump.svg"
+    ],
+    "land": [
+      "assets/character/bemmado-land.svg"
+    ],
+    "sleep": [
+      "assets/character/bemmado-sleep.svg"
+    ],
+    "sit": [
+      "assets/character/bemmado-sit.svg"
+    ],
+    "look": [
+      "assets/character/bemmado-look.svg"
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="theme-color" content="#f7f4ef"><meta name="description" content="별탄의 작은 게임 로비. 캐릭터에게 인사하고, 그림과 일상을 만나 보세요.">
+ <title>별탄 · BYEOLTAN — LITTLE STUDIO</title>
+ <link rel="icon" href="assets/character/byeoltan-logo.png" type="image/png"><link rel="stylesheet" href="style.css">
+ <link rel="preload" href="assets/Galmuri11.woff2" as="font" type="font/woff2" crossorigin>
+</head>
+<body class="title-mode">
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<section id="title-screen" class="title-screen" aria-labelledby="title-name">
+ <div class="title-grid" aria-hidden="true"></div><div class="title-stripe" aria-hidden="true"></div>
+ <div class="title-top"><span class="logo-art"><img src="assets/character/byeoltan-logo.png" alt="별탄 로고" width="64" height="64"></span><span>ILLUSTRATOR’S PLAYGROUND</span><span>VOL. 01 / 2026</span></div>
+ <div class="title-copy"><p class="overline"><span class="square"></span> A LITTLE WORLD BY</p><h1 id="title-name">별탄<span>BYEOL<br>TAN<span class="title-period">✳</span></span></h1><p class="title-sub">그림 그리고, 도마뱀 좋아하는 사람.</p><button id="start-game" class="start-game"><span>START</span><span aria-hidden="true">↗</span></button><p class="press-enter">PRESS ENTER TO START</p></div>
+ <div class="title-character" aria-hidden="true"><div class="title-orbit"></div><span class="title-sticker">HELLO,<br>HUMAN!</span><img src="assets/character/byeoltan-character.png" alt=""><span class="title-character-caption">PLAYER 01 — YOUR LITTLE FRIEND</span></div>
+ <div class="title-footer"><span>ART / LIFE / LITTLE ADVENTURES</span><span>© 2026 BYEOLTAN</span></div>
+</section>
+<header class="header" id="lobby-hud" hidden>
+ <a class="brand" href="#home" aria-label="별탄 로비"><span class="logo-art"><img src="assets/character/byeoltan-logo.png" alt="별탄 로고" width="64" height="64"></span></a>
+ <div class="hud-profile"><span class="level">LV.<strong>01</strong></span><a href="#profile">ARTIST PROFILE <span>↗</span></a></div>
+ <div class="hud-tools"><time id="clock" aria-label="현재 시간">--:--:--</time><button id="bgm" class="hud-button" aria-pressed="false" aria-label="배경음 켜기"><span aria-hidden="true">♫</span><span id="bgm-label">SOUND OFF</span></button><button id="fullscreen" class="hud-button square-button" aria-label="전체화면 켜기" aria-pressed="false">⛶</button><button id="settings-button" class="hud-button square-button" aria-label="설정 열기">⚙</button></div>
+</header>
+<main id="main" tabindex="-1" hidden>
+ <section id="home" class="page lobby" aria-label="별탄 게임 로비">
+  <div class="lobby-background" aria-hidden="true"><span class="background-word" data-parallax="-5">LITTLE<br>STUDIO.</span><div class="environment" data-parallax="7"></div><div class="halftone"></div><span class="diagonal-rule"></span></div>
+  <div class="lobby-topline"><span><b>01</b> HOME BASE / 나의 작은 작업실</span><span class="lobby-index">BYEOLTAN WORLD — ONLINE</span></div>
+  <div class="character-stage" id="character-stage">
+   <div class="character-type" data-parallax="-9" aria-hidden="true"><span>TAN.</span></div>
+   <span class="artist-sticker">DRAW A LITTLE.<br>PLAY A LITTLE. <span>✳</span></span>
+   <div class="actor-platform" aria-hidden="true"><span>PLAYER / 01</span></div>
+   <span id="actor-shadow" class="actor-shadow" aria-hidden="true"></span>
+   <button id="character" class="character" aria-label="별탄 캐릭터에게 인사하기"><span id="character-visual" class="character-visual"><img id="character-image" src="assets/character/byeoltan-character.png" alt="별탄 캐릭터" width="1000" height="1000" fetchpriority="high"></span></button>
+   <span id="sleep-mark" class="sleep-mark" aria-hidden="true" hidden>z z Z</span>
+   <div id="character-particles" class="character-particles" aria-hidden="true"></div>
+   <div id="character-dialogue" class="character-dialogue" hidden><div><b>별탄</b><small>YOUR LITTLE FRIEND</small><button id="dismiss-dialogue" aria-label="대사 닫기">×</button></div><p id="dialogue-text" aria-hidden="true"></p><span id="dialogue-announcement" class="sr-only" role="status" aria-live="polite"></span><span class="dialogue-next" aria-hidden="true">▼</span></div>
+   <div class="actor-caption"><span class="hello-hint">캐릭터를 톡, 눌러 보세요 ↗</span></div>
+  </div>
+  <nav class="lobby-menu" aria-label="게임 메뉴">
+   <div class="menu-heading"><span>WHERE TO NEXT?</span><span>SELECT A DESTINATION ↙</span></div>
+   <a href="#gallery" class="menu-panel menu-gallery" data-route="gallery"><span class="menu-number">01 / ART COLLECTION</span><span class="menu-title">GALLERY <i>↗</i></span><span class="menu-ko">그림 보관함 <b id="menu-gallery-count">04 WORKS</b></span><span class="panel-decoration" aria-hidden="true">✳</span></a>
+   <a href="#profile" class="menu-panel menu-profile" data-route="profile"><span class="menu-number">02 / ABOUT THE ARTIST</span><span class="menu-title">PROFILE <i>↗</i></span><span class="menu-ko">별탄을 소개합니다</span></a>
+   <a href="#calendar" class="menu-panel menu-calendar" data-route="calendar"><span class="menu-number">03 / NEXT QUEST</span><span class="menu-title">CALENDAR <i>▦</i></span><span class="menu-ko">하루의 작은 일정</span></a>
+   <a href="#banner" class="menu-panel menu-banner" data-route="banner"><span class="menu-number">04 / NEIGHBOR LINKS</span><span class="menu-title">BANNER <i>↗</i></span><span class="menu-ko">이웃들의 작은 배너 모음</span></a>
+  </nav>
+  <div class="lobby-bottom"><span><b>✦</b> 오늘의 퀘스트 : 그림 한 장 완성하기</span><span>TAKE YOUR TIME. STAY A LITTLE.</span><span>© BYEOLTAN</span></div>
+ </section>
+
+ <section id="gallery" class="page inner-page gallery-page" hidden>
+  <a class="back-lobby" href="#home">↖ BACK TO LOBBY <span>로비로 돌아가기</span></a>
+  <div class="gallery-page-header">
+   <div class="gallery-heading">
+    <span class="gallery-eyebrow">ILLUSTRATION ARCHIVE</span>
+    <h1 class="gallery-title">GALLERY</h1>
+   </div>
+  </div>
+  <div id="gallery-masonry" class="gallery-masonry"></div>
+ </section>
+
+ <section id="log" class="page inner-page" hidden><a class="back-lobby" href="#home">↖ BACK TO LOBBY <span>로비로 돌아가기</span></a><div class="page-heading"><p class="eyebrow">LITTLE THINGS, SAVED HERE</p><h1>ADVENTURE LOG<span>별탄의 기록</span></h1><p>그림과 도마뱀, 그리고 별일 없는 하루.</p></div><p class="sample-note">마을을 둘러보기 위한 예시 기록입니다.</p><div id="all-logs" class="all-logs"></div></section>
+
+ <section id="calendar" class="page inner-page calendar-page" hidden>
+  <a class="back-lobby" href="#home">↖ BACK TO LOBBY <span>로비로 돌아가기</span></a>
+  <div class="calendar-poster-wrapper">
+   <div class="calendar-poster-card">
+    <div class="calendar-poster-bg" aria-hidden="true">
+     <img src="assets/calendar/image05.jpg" alt="캘린더 배경 일러스트">
+    </div>
+    <div class="calendar-content-overlay">
+     <div class="calendar-board">
+      <header class="calendar-card-header">
+       <div class="calendar-nav-bar">
+        <button id="prev-month" class="cal-nav-btn" aria-label="이전 달">‹</button>
+        <h2 id="month-title" class="cal-month-title"></h2>
+        <button id="next-month" class="cal-nav-btn" aria-label="다음 달">›</button>
+       </div>
+      </header>
+      <div class="weekdays" aria-hidden="true">
+       <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span>
+      </div>
+      <div id="calendar-days" class="calendar-days"></div>
+      <footer class="calendar-card-footer">
+       <div class="cal-legend">
+        <span>★ EVENT</span>
+        <span>♥ PERSONAL</span>
+        <span>✎ DRAWING</span>
+        <span>● COMMISSION</span>
+       </div>
+      </footer>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="profile" class="page inner-page" hidden><a class="back-lobby" href="#home">↖ BACK TO LOBBY <span>로비로 돌아가기</span></a><div class="page-heading"><p class="eyebrow">PLAYER PROFILE / 04</p><h1>HELLO, I’M<br>BYEOLTAN.<span>별탄을 소개합니다</span></h1></div><div class="profile-layout"><div class="profile-portrait"><img src="assets/character/byeoltan-character.png" alt="별탄 캐릭터"><span>LV.01 / ILLUSTRATOR</span></div><div class="profile-copy"><h2>그림 그리고,<br>도마뱀 좋아하는 사람.</h2><p>오늘도 무언가 그리고 있습니다.<br>작은 그림과 느린 하루를 이곳에 모아 두었어요.</p><dl><dt>NAME</dt><dd>별탄 / BYEOLTAN</dd><dt>CLASS</dt><dd>ILLUSTRATOR</dd><dt>FAVORITE</dt><dd>도마뱀, 그림, 작은 세계</dd></dl><a class="inline-link" href="#gallery">그림 보관함 구경하기 ↗</a></div></div></section>
+ <section id="banner" class="page inner-page banner-page" hidden><a class="back-lobby" href="#home">↖ BACK TO LOBBY <span>로비로 돌아가기</span></a><div class="page-heading"><p class="eyebrow">NEIGHBORS / LINKS</p><h1>BANNER<span>이웃들의 작은 배너 모음</span></h1><p>좋아하는 이웃과 작은 홈페이지를 이곳에 모아 둡니다.</p></div><div class="neighbor-banners"><div class="neighbor-banner-slot">YOUR BANNER HERE</div><div class="neighbor-banner-slot">YOUR BANNER HERE</div><div class="neighbor-banner-slot">YOUR BANNER HERE</div><div class="neighbor-banner-slot">YOUR BANNER HERE</div><div class="neighbor-banner-slot">YOUR BANNER HERE</div><div class="neighbor-banner-slot">YOUR BANNER HERE</div></div></section>
+</main>
+<div id="game-transition" class="game-transition" aria-hidden="true"><i></i><i></i><i></i><i></i><span id="transition-label">ENTERING LITTLE STUDIO</span></div>
+<div id="gallery-lightbox" class="gallery-lightbox" hidden role="dialog" aria-modal="true" aria-label="작품 상세 뷰어">
+ <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+ <div class="lightbox-modal">
+  <button id="lightbox-close" class="lightbox-btn lightbox-close" aria-label="닫기">×</button>
+  <button id="lightbox-prev" class="lightbox-btn lightbox-prev" aria-label="이전 작품">‹</button>
+  <button id="lightbox-next" class="lightbox-btn lightbox-next" aria-label="다음 작품">›</button>
+  <div class="lightbox-body">
+   <div class="lightbox-figure">
+    <img id="lightbox-img" src="" alt="작품 확대">
+   </div>
+  </div>
+ </div>
+</div>
+<dialog id="detail"><button id="close-dialog" class="close-dialog" aria-label="닫기">×</button><div id="detail-content"></div></dialog>
+<dialog id="settings"><div class="settings-heading"><p class="eyebrow">SYSTEM / 00</p><button id="close-settings" class="close-dialog" aria-label="설정 닫기">×</button><h2>SETTINGS <span>환경 설정</span></h2></div><label class="setting-row"><span>CHARACTER MOTION<small>캐릭터 움직임과 패럴랙스</small></span><input id="motion-toggle" type="checkbox" checked></label><p id="motion-note" class="setting-note">기기의 모션 감소 설정을 우선 적용합니다.</p><label class="setting-row"><span>BGM<small>작업실 배경음</small></span><input id="sound-toggle" type="checkbox"></label><label class="volume-label" for="volume">VOLUME <output id="volume-value">35%</output></label><input id="volume" type="range" min="0" max="100" value="35"><p class="setting-note">배경음은 직접 켰을 때만 재생됩니다.</p></dialog>
+<div id="system-message" class="system-message" role="status" hidden></div>
+<script type="module" src="app.js"></script>
+</body></html>
